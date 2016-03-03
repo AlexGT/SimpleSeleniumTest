@@ -7,24 +7,13 @@ package simpleseleniumtest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import simpleseleniumtest.pages.SearchPage;
-import simpleseleniumtest.pages.SitePage;
 
 /**
  *
  * @author alexb
  */
 public class SimpleSeleniumTest {
-
-    /**
-     * @param args the command line arguments
-     */
-    SitePage resultPage;
-    SearchPage searchPage;
-    
-    
     
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver;
