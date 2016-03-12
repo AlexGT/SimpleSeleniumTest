@@ -7,6 +7,7 @@
  */
 
 
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.junit.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,6 +27,7 @@ public class TestGoogleSearch {
     @Before
     public void openPage(){
         driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.get("http://google.com.ua");
     }
     
@@ -34,12 +36,10 @@ public class TestGoogleSearch {
         searchPage = new SearchPage(driver);
         searchPage.setSearchText("Simple Selenium Test");
         searchPage.clickSearch();
-        Thread.sleep(1000);
         searchPage.clickLink();
         
         resultPage = new SitePage(driver);
-        Thread.sleep(1000);
-        Assert.assertTrue("Result text not found", resultPage.verifyText().contains("Creating and running a simple Selenium WebDriver test"));
-
+        boolean contains = resultPage.verifyText().contains("Creating and running a simple Selenium WebDriver test");
+        System.err.println(contains);
     }
 }

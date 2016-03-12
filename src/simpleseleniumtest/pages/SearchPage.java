@@ -21,10 +21,6 @@ public class SearchPage {
     public SearchPage(WebDriver driver){
         this.driver = driver;
     }
-
-//    public SearchPage() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     
     public void setSearchText(String searchString){
         driver.findElement(findString).sendKeys(searchString);

@@ -23,9 +23,9 @@ public class SimpleSeleniumTest {
                 .sendKeys("Simple Selenium Test");
         driver.findElement(By.name("btnG"))
                 .click();
-        Thread.sleep(1000);
         String link = driver.findElement(By.partialLinkText("Creating and running a simple Selenium WebDriver test"))
                 .getAttribute("href");
+        driver.get(link);
 
         System.out.println(link);
     }
