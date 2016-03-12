@@ -5,7 +5,6 @@
  */
 package simpleseleniumtest.pages;
 
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,7 +18,6 @@ public class SitePage {
     
     public SitePage(WebDriver driver){
         this.driver = driver;
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
     
     public String verifyText(){
