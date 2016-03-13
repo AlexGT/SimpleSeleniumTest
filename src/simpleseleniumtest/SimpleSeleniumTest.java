@@ -28,7 +28,8 @@ public class SimpleSeleniumTest {
         String link = driver.findElement(By.partialLinkText("Creating and running a simple Selenium WebDriver test"))
                 .getAttribute("href");
         driver.get(link);
-        String header = driver.findElement(By.cssSelector("h1")).getText();
+        String header = driver.findElement(By.cssSelector("h1"))
+                .getText();
         driver.close();
         
         System.out.println(link);
