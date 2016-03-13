@@ -6,8 +6,8 @@
 import org.openqa.selenium.WebDriver;
 import org.junit.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import simpleseleniumtest.pages.SearchPage;
-import simpleseleniumtest.pages.SitePage;
+import pages.SearchPage;
+import pages.SitePage;
 
 /**
  *
