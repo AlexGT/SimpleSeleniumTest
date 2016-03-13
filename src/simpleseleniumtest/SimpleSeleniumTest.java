@@ -29,7 +29,8 @@ public class SimpleSeleniumTest {
                 .getAttribute("href");
         driver.get(link);
         String header = driver.findElement(By.cssSelector("h1")).getText();
-
+        driver.close();
+        
         System.out.println(link);
         System.out.println(header);
     }
