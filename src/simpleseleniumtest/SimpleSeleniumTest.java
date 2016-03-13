@@ -25,7 +25,7 @@ public class SimpleSeleniumTest {
                 .sendKeys("Simple Selenium Test");
         driver.findElement(By.name("btnG"))
                 .click();
-        String link = driver.findElement(By.partialLinkText("Creating and running a simple Selenium WebDriver test"))
+        String link = driver.findElement(By.partialLinkText("Creating and running a simple"))
                 .getAttribute("href");
         driver.get(link);
         String header = driver.findElement(By.cssSelector("h1"))
