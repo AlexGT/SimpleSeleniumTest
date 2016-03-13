@@ -7,7 +7,6 @@ package simpleseleniumtest.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,8 +23,8 @@ public class SitePage {
     }
     
     public String verifyText(){
-        WebElement header = (new WebDriverWait(driver, 4))
-          .until(ExpectedConditions.visibilityOfElementLocated(verifyText));
+        Boolean header = (new WebDriverWait(driver, 4))
+          .until(ExpectedConditions.textToBePresentInElementLocated(verifyText, ""));
         return driver.findElement(verifyText).getText();
     }
     
