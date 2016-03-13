@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.junit.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,15 +22,13 @@ public class TestGoogleSearch {
     @Before
     public void openPage(){
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.get("http://google.com.ua");
     }
     
     @Test
     public void testSearch() throws InterruptedException{
         searchPage = new SearchPage(driver);
-        searchPage.setSearchText("Simple Selenium Test");
-        searchPage.clickSearch();
+        searchPage.searchText("Simple Selenium Test");
         searchPage.clickLink();
         
         resultPage = new SitePage(driver);

@@ -10,6 +10,8 @@ package simpleseleniumtest.pages;
  * @author alexb
  */
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage {
     private final WebDriver driver;
@@ -23,11 +25,15 @@ public class SearchPage {
     }
     
     public void setSearchText(String searchString){
-        driver.findElement(findString).sendKeys(searchString);
+        WebElement inputString = (new WebDriverWait(driver, 2))
+          .until(ExpectedConditions.elementToBeClickable(findString));
+        inputString.sendKeys(searchString);
     }
     
     public void clickSearch(){
-        driver.findElement(searchButton).click();
+        WebElement searchOk = (new WebDriverWait(driver, 2))
+          .until(ExpectedConditions.elementToBeClickable(searchButton));
+        searchOk.click();
     }
     
     public void searchText(String searchString){
@@ -36,6 +42,8 @@ public class SearchPage {
     }
     
     public void clickLink(){
-        driver.findElement(resultLink).click();
+        WebElement result = (new WebDriverWait(driver, 2))
+          .until(ExpectedConditions.elementToBeClickable(resultLink));
+        result.click();
     }
 }
