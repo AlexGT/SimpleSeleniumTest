@@ -22,7 +22,7 @@ public class SitePage {
         this.driver = driver;
     }
     
-    public String verifyText(){
+    public String verifyHeader(){
         Boolean header = (new WebDriverWait(driver, 2))
           .until(ExpectedConditions.textToBePresentInElementLocated(verifyText, ""));
         return driver.findElement(verifyText).getText();

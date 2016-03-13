@@ -32,7 +32,9 @@ public class TestGoogleSearch {
         searchPage.clickLink();
         
         resultPage = new SitePage(driver);
-        Assert.assertEquals("Creating and running a simple Selenium WebDriver test", resultPage.verifyText());
-        System.out.println(resultPage.verifyText());
+        //Verifying H1 tag is correct
+        Assert.assertEquals("Creating and running a simple Selenium WebDriver test", resultPage.verifyHeader());
+        System.out.println(resultPage.verifyHeader());
+        System.out.println(resultPage.getUrl());
     }
 }
