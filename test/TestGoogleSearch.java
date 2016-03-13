@@ -39,7 +39,7 @@ public class TestGoogleSearch {
         searchPage.clickLink();
         
         resultPage = new SitePage(driver);
-        boolean contains = resultPage.verifyText().contains("Creating and running a simple Selenium WebDriver test");
-        System.err.println(contains);
+        Assert.assertEquals("Creating and running a simple Selenium WebDriver test", resultPage.verifyText());
+        System.out.println(resultPage.verifyText());
     }
 }
