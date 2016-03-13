@@ -8,6 +8,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,16 +18,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SitePage {
     private final WebDriver driver;
-    By headerLoc = By.cssSelector("h1");
+    @CacheLookup
+    private final By headerLoc = By.cssSelector("h1");
     
     public SitePage(WebDriver driver){
         this.driver = driver;
     }
     
     public String getHeader(){
-        WebElement header = (new WebDriverWait(driver, 2))
+        WebElement header = (new WebDriverWait(driver, 10))
           .until(ExpectedConditions.elementToBeClickable(headerLoc));
-        return driver.findElement(headerLoc).getText();
+        return header.getText();
     }
     
     public String getUrl(){

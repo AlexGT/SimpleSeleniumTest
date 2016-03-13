@@ -18,7 +18,6 @@ public class TestGoogleSearch {
     SitePage resultPage;
     SearchPage searchPage;
     
-    
     @Before
     public void openPage(){
         driver = new FirefoxDriver();
@@ -28,6 +27,7 @@ public class TestGoogleSearch {
     @After
     public void tearDown(){
     driver.close();
+    driver.quit();
     }
     
     @Test
