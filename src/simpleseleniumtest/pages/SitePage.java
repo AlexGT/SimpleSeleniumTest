@@ -16,16 +16,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SitePage {
     private final WebDriver driver;
-    By verifyText = By.cssSelector("h1");
+    By headerLoc = By.cssSelector("h1");
     
     public SitePage(WebDriver driver){
         this.driver = driver;
     }
     
-    public String verifyHeader(){
+    public String getHeader(){
         Boolean header = (new WebDriverWait(driver, 2))
-          .until(ExpectedConditions.textToBePresentInElementLocated(verifyText, ""));
-        return driver.findElement(verifyText).getText();
+          .until(ExpectedConditions.textToBePresentInElementLocated(headerLoc, ""));
+        return driver.findElement(headerLoc).getText();
     }
     
     public String getUrl(){
