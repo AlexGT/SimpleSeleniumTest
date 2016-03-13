@@ -25,6 +25,11 @@ public class TestGoogleSearch {
         driver.get("http://google.com.ua");
     }
     
+    @After
+    public void teatDown(){
+    driver.close();
+    }
+    
     @Test
     public void testSearch() throws InterruptedException{
         searchPage = new SearchPage(driver);
