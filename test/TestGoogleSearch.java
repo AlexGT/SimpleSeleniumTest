@@ -29,10 +29,8 @@ public class TestGoogleSearch {
     public void testSearch() throws InterruptedException{
         searchPage = new SearchPage(driver);
         searchPage.searchText("Simple Selenium Test");
-        searchPage.clickLink();
         
         resultPage = new SitePage(driver);
-        //Verifying H1 tag is correct
         Assert.assertEquals("Creating and running a simple Selenium WebDriver test", resultPage.getHeader());
         System.out.println(resultPage.getHeader());
         System.out.println(resultPage.getUrl());

@@ -36,14 +36,16 @@ public class SearchPage {
         searchOk.click();
     }
     
-    public void searchText(String searchString){
-        this.setSearchText(searchString);
-        this.clickSearch();
-    }
-    
     public void clickLink(){
         WebElement result = (new WebDriverWait(driver, 2))
           .until(ExpectedConditions.elementToBeClickable(resultLink));
         result.click();
     }
+    
+    public void searchText(String searchString){
+        this.setSearchText(searchString);
+        this.clickSearch();
+        this.clickLink();
+    }
+    
 }
