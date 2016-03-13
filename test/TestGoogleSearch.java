@@ -26,7 +26,7 @@ public class TestGoogleSearch {
     }
     
     @After
-    public void teatDown(){
+    public void tearDown(){
     driver.close();
     }
     
