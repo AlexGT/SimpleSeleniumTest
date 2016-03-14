@@ -10,18 +10,26 @@ package pages;
  * @author alexb
  */
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage {
     private final WebDriver driver;
     
-    By findString = By.name("q");
-    By searchButton = By.name("btnG");
-    By resultLink = By.partialLinkText("Creating and running a simple");
+    @FindBy (name = "q")
+    private WebElement findString;
+    
+    @FindBy (name = "btnG")
+    private WebElement searchButton;
+    
+    @FindBy (partialLinkText = "Creating and running a simple")
+    WebElement resultLink;
     
     public SearchPage(WebDriver driver){
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
     
     public void setSearchText(String searchString){
