@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import org.openqa.selenium.WebDriver;
 import org.junit.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.SearchPage;
 import pages.SitePage;
 
@@ -13,22 +11,7 @@ import pages.SitePage;
  *
  * @author alexb
  */
-public class TestGoogleSearch {
-    WebDriver driver;
-    SitePage resultPage;
-    SearchPage searchPage;
-    
-    @Before
-    public void openPage(){
-        driver = new FirefoxDriver();
-        driver.get("http://google.com.ua");
-    }
-    
-    @After
-    public void tearDown(){
-    driver.close();
-    driver.quit();
-    }
+public class TestGoogleSearch extends BaseTest{
     
     @Test
     public void testSearch() throws InterruptedException{
