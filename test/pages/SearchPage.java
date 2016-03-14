@@ -9,16 +9,17 @@ package pages;
  *
  * @author alexb
  */
+import elements.AdvancedElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SearchPage {
+public class SearchPage extends BasePage {
     private final WebDriver driver;
-    
-    @FindBy (name = "q")
+
+
+    @FindBy(name = "q")
     private WebElement findString;
     
     @FindBy (name = "btnG")
@@ -28,19 +29,18 @@ public class SearchPage {
     WebElement resultLink;
     
     public SearchPage(WebDriver driver){
+        super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+
     }
     
     public void setSearchText(String searchString){
-        WebElement inputString = (new WebDriverWait(driver, 2))
-          .until(ExpectedConditions.elementToBeClickable(findString));
+        WebElement inputString = getBaseElement(findString) ;
         inputString.sendKeys(searchString);
     }
     
     public void clickSearch(){
-        WebElement searchOk = (new WebDriverWait(driver, 2))
-          .until(ExpectedConditions.elementToBeClickable(searchButton));
+        WebElement searchOk = getBaseElement(searchButton);
         searchOk.click();
     }
     
