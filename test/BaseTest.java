@@ -17,9 +17,9 @@ import pages.SitePage;
  * @author a_belchikov
  */
 public class BaseTest {
-    WebDriver driver;
-    SearchPage searchPage;
-    SitePage resultPage;
+    protected WebDriver driver;
+    protected SearchPage searchPage;
+    protected SitePage resultPage;
     
     @Before
     public void initDriver(){
