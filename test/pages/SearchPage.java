@@ -9,15 +9,11 @@ package pages;
  *
  * @author alexb
  */
-import elements.AdvancedElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage extends BasePage {
     private final WebDriver driver;
-
 
     @FindBy(name = "q")
     private WebElement findString;
@@ -26,12 +22,11 @@ public class SearchPage extends BasePage {
     private WebElement searchButton;
     
     @FindBy (partialLinkText = "Creating and running a simple")
-    WebElement resultLink;
+    private WebElement resultLink;
     
     public SearchPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-
     }
     
     public void setSearchText(String searchString){
@@ -45,8 +40,7 @@ public class SearchPage extends BasePage {
     }
     
     public void clickLink(){
-        WebElement result = (new WebDriverWait(driver, 2))
-          .until(ExpectedConditions.elementToBeClickable(resultLink));
+        WebElement result = getBaseElement(resultLink);
         result.click();
     }
     

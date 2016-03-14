@@ -9,29 +9,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
  * @author alexb
  */
-public class SitePage {
+public class SitePage extends BasePage{
     private final WebDriver driver;
     
-    @CacheLookup
+    
     @FindBy (css = "h1")
     private WebElement headerLoc;
     
     public SitePage(WebDriver driver){
+        super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
     
     public String getHeader(){
-        WebElement header = (new WebDriverWait(driver, 10))
-          .until(ExpectedConditions.elementToBeClickable(headerLoc));
+        WebElement header = getBaseElement(headerLoc);
         return header.getText();
     }
     
